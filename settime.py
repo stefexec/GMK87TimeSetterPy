@@ -5,7 +5,6 @@
 import binascii
 import time
 import usb1
-import usb.core
 
 
 def validate_read(expected, actual, msg):
@@ -80,7 +79,7 @@ def main():
     usbcontext = usb1.USBContext()
     dev = open_dev(vid_want, pid_want, usbcontext)
 
-    dev.detachKernelDriver(0)
+    #dev.detachKernelDriver(0)
 
     dev = open_dev(vid_want, pid_want, usbcontext)
 
@@ -88,7 +87,7 @@ def main():
     dev.resetDevice()
     replay(dev)
 
-    dev.attachKernelDriver(0)
+    #dev.attachKernelDriver(0)
 
 if __name__ == "__main__":
     main()
